@@ -12,7 +12,8 @@ config :logger, level: :warn
 # Configure your database
 config :photo_box, PhotoBox.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
+  username: System.get_env("DATABASE_POSTGRESQL_USERNAME") || "postgres",
+  password: System.get_env("DATABASE_POSTGRESQL_PASSWORD") || "postgres",
   database: "photo_box_test",
-  size: 1 # Use a single connection for transactional tests
+  size: 1,
+  max_overflow: 0
