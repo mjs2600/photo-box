@@ -33,3 +33,5 @@ config :photo_box, PhotoBox.Repo,
   password: "postgres",
   database: "photo_box_dev",
   size: 10 # The amount of database connections in the pool
+
+config :photo_box, photo_dir: "priv/static/photos"

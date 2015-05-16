@@ -17,7 +17,7 @@ defmodule PhotoBox.Mixfile do
   # Type `mix help compile.app` for more information
   def application do
     [mod: {PhotoBox, []},
-     applications: [:phoenix, :phoenix_html, :cowboy, :logger,
+     applications: [:plug, :phoenix, :phoenix_html, :cowboy, :logger,
                     :phoenix_ecto, :postgrex]]
   end
 
@@ -29,11 +29,15 @@ defmodule PhotoBox.Mixfile do
   #
   # Type `mix help deps` for examples and options
   defp deps do
-    [{:phoenix, "~> 0.13"},
-     {:phoenix_ecto, "~> 0.4"},
-     {:postgrex, ">= 0.0.0"},
-     {:phoenix_html, "~> 1.0"},
-     {:phoenix_live_reload, "~> 0.4", only: :dev},
-     {:cowboy, "~> 1.0"}]
+    [
+      {:phoenix, "~> 0.13"},
+      {:phoenix_ecto, "~> 0.4"},
+      {:postgrex, ">= 0.0.0"},
+      {:phoenix_html, "~> 1.0"},
+      {:phoenix_live_reload, "~> 0.4", only: :dev},
+      {:cowboy, "~> 1.0"},
+      {:uuid, "~> 1.0"},
+      {:mogrify, "~> 0.1"},
+   ]
   end
 end

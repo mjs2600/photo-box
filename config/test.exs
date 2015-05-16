@@ -17,3 +17,6 @@ config :photo_box, PhotoBox.Repo,
   database: "photo_box_test",
   size: 1,
   max_overflow: 0
+
+
+config :photo_box, photo_dir: "test/priv"

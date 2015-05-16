@@ -15,8 +15,10 @@ defmodule PhotoBox.Router do
   scope "/", PhotoBox do
     pipe_through :browser # Use the default browser stack
 
+    # get "/photos/dir/:directory", PhotoDirectoryController, :index
     get "/", PhotoController, :index
     resources "/photos", PhotoController
+
   end
 
   # Other scopes may use custom stacks.

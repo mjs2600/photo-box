@@ -1,17 +1,6 @@
-<h2>Show photo</h2>
+<h2><%= @photo.title %></h2>
 
-<ul>
-
-  <li>
-    <strong>Title:</strong>
-    <%= @photo.title %>
-  </li>
-
-  <li>
-    <strong>Folder:</strong>
-    <%= @photo.folder %>
-  </li>
-
-</ul>
+<h4>/<%= @photo.folder %>/</h4>
+<img src=<%= "/photos/#{@photo.folder}/#{Path.basename(@photo.file_location)}" %>></img>
 
 <%= link "Back", to: photo_path(@conn, :index) %>

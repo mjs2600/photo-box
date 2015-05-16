@@ -4,11 +4,12 @@ defmodule PhotoBox.Photo do
   schema "photos" do
     field :title, :string
     field :folder, :string
+    field :file_location, :string
 
     timestamps
   end
 
-  @required_fields ~w(title folder)
+  @required_fields ~w(title folder file_location)
   @optional_fields ~w()
 
   @doc """

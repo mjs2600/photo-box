@@ -1,5 +1,6 @@
 defmodule PhotoBox.PhotoController do
   use PhotoBox.Web, :controller
+  import IEx
 
   alias PhotoBox.Photo
 
@@ -17,9 +18,24 @@ defmodule PhotoBox.PhotoController do
   end
 
   def create(conn, %{"photo" => photo_params}) do
-    changeset = Photo.changeset(%Photo{}, photo_params)
+    image = photo_params["image"]
+    directory = photo_params["folder"]
+    file_directory = Application.get_env(:photo_box, :photo_dir)
+    |> Path.join(directory)
 
+    file_extension = image.content_type
+    |> String.split("/")
+    |> List.last
+
+    file_name = "#{UUID.uuid4()}.#{file_extension}"
+
+    file_location = Path.join(file_directory, file_name)
+    photo_params = Dict.put_new(photo_params, "file_location", file_location)
+
+    changeset = Photo.changeset(%Photo{}, photo_params)
     if changeset.valid? do
+      File.mkdir_p!(file_directory)
+      File.copy!(image.path, file_location)
       Repo.insert(changeset)
 
       conn

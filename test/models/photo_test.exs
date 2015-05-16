@@ -3,7 +3,7 @@ defmodule PhotoBox.PhotoTest do
 
   alias PhotoBox.Photo
 
-  @valid_attrs %{folder: "some content", title: "some content"}
+  @valid_attrs %{folder: "some content", title: "some content", file_location: "test/priv/test.png"}
   @invalid_attrs %{}
 
   test "changeset with valid attributes" do

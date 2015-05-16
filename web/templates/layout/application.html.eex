@@ -7,17 +7,16 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Hello Phoenix!</title>
+    <title>Photo Box</title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
   </head>
 
   <body>
     <div class="container">
       <div class="header">
-        <ul class="nav nav-pills pull-right">
-          <li><a href="http://www.phoenixframework.org/docs">Get Started</a></li>
-        </ul>
-        <span class="logo"></span>
+        <%= content_tag :a, href: photo_path(@conn, :index) do %>
+          <h1>Photo Box</h1>
+        <% end %>
       </div>
 
       <p class="alert alert-info"><%= get_flash(@conn, :info) %></p>
