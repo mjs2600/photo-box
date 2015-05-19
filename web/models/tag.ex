@@ -1,16 +1,14 @@
-defmodule PhotoBox.Photo do
+defmodule PhotoBox.Tag do
   use PhotoBox.Web, :model
 
-  schema "photos" do
-    field :title, :string
-    field :folder, :string
-    field :file_location, :string
+  schema "tags" do
+    field :name, :string
     has_many :photo_tags, PhotoBox.PhotoTag
 
     timestamps
   end
 
-  @required_fields ~w(title folder file_location)
+  @required_fields ~w(name)
   @optional_fields ~w()
 
   @doc """
