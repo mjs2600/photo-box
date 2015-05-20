@@ -1,4 +1,5 @@
 defmodule PhotoBox.Photo do
+  import Ecto.Query
   use PhotoBox.Web, :model
 
   schema "photos" do
@@ -22,5 +23,10 @@ defmodule PhotoBox.Photo do
   def changeset(model, params \\ :empty) do
     model
     |> cast(params, @required_fields, @optional_fields)
+  end
+
+  def with_tags(query) do
+    from photo in query,
+    preload: [photo_tags: :tag]
   end
 end

@@ -12,6 +12,6 @@ defmodule PhotoBox.PhotoTag do
   @optional_fields ~w()
 
   def add_photo_tag(photo, tag) do
-    Repo.insert(%PhotoTag{photo_id: p.id, tag_id: t.id})
+    Repo.insert(%__MODULE__{photo_id: photo.id, tag_id: tag.id})
   end
 end
