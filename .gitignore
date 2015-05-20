@@ -24,3 +24,5 @@ erl_crash.dump
 /config/prod.secret.exs
 
 /priv/static/photos
+
+*.beam
