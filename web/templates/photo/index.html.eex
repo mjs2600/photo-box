@@ -3,7 +3,6 @@
 <table class="table">
   <thead>
     <tr>
-      <th>Title</th>
       <th>Folder</th>
       <th>Image</th>
 
@@ -13,7 +12,6 @@
   <tbody>
 <%= for photo <- @photos do %>
     <tr>
-      <td><%= photo.title %></td>
       <td><%= photo.folder %></td>
       <td>
         <%= content_tag :a, href: photo_path(@conn, :show, photo), class: "thumbnail image-thumbnail" do %>

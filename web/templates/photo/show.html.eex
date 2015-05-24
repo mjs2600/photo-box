@@ -1,6 +1,4 @@
-<h2><%= @photo.title %></h2>
-
-<h4>/<%= @photo.folder %>/</h4>
+<h2>/<%= @photo.folder %>/</h2>
 <img src=<%= "/photos/#{@photo.folder}/#{Path.basename(@photo.file_location)}" %>></img>
 
 <%= link "Back", to: photo_path(@conn, :index) %>

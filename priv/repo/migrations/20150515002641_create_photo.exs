@@ -3,7 +3,6 @@ defmodule PhotoBox.Repo.Migrations.CreatePhoto do
 
   def change do
     create table(:photos) do
-      add :title, :string
       add :folder, :string
 
       timestamps

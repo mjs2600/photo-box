@@ -3,7 +3,6 @@ defmodule PhotoBox.Photo do
   use PhotoBox.Web, :model
 
   schema "photos" do
-    field :title, :string
     field :folder, :string
     field :file_location, :string
     has_many :photo_tags, PhotoBox.PhotoTag
@@ -11,7 +10,7 @@ defmodule PhotoBox.Photo do
     timestamps
   end
 
-  @required_fields ~w(title folder file_location)
+  @required_fields ~w(folder file_location)
   @optional_fields ~w()
 
   @doc """
